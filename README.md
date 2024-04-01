@@ -10,7 +10,7 @@ let pi: Float = 3.14159
 let name: String = "Aem"
 var isRight: Bool = true
 ```
-or using swift type-inferance
+or using swift's type-inferance
 ```
 var num = 10
 let name = "Aem"
@@ -102,3 +102,59 @@ myCar?.move()
 
 if the struct or calss instance is nil, it won't continue down the chain.
 
+### Tuples
+Wrap more that one small related peices of the same-type or different-type data together.
+```
+let coordinates: (Int, Int) = (2,3)
+let namedCoordinatesTuple: (Int, Int) = (x: 2, y:3)
+let coordinates3D: (Int, Int, Int) = (x:2, y:3, z: 1)
+let firstOperandWithOperation: (Int, String) = (5, "+")
+```
+or using swift's type-inferance 
+```
+let coordinates = (2,3)
+```
+
+### Arrays
+Ordered list of values of the same data-type with indexes assigned to each element starting at `0`.
+Arrays are Objects so they have both data and functions.
+
+```
+let array: [Int] = [1,2,3,4,5]
+let arrayx10: Array<Int> = [10,20,30,40,50]
+```
+or using type-inferance
+
+```
+var strArray = ["val1", "val2", "val3"]
+var anotherStrArray = ["key1", "key2", "key3"]
+```
+- Using Array Methods
+  - Append
+    ```strArray.append("val4")```
+  - Append ContentsOf Another Array
+    ```strArray.append(contentsOf: anotherStrArray)```
+    or
+    ```strArray += anotherStrArray```
+  - Remove At index
+    ```strArray.remove(at: 0)```
+  - RemoveFirst: Removes first element and returns removed element
+    ```let str = strArray.removeFirst()```
+  - RemoveLast: Removes last element and returns removed element
+    ```let str = strArray.removeLast()```
+  - RemoveAll
+    ```strArray.removeAll()```
+  - isEmpty
+    ```strArray.isEmpty```
+  - Count
+    ```strArray.count```
+  - First: retruns first element of array if existed (returns optional)
+    ```strArray.first```
+  - Last: retruns last element of array if existed (returns optional)
+    ```strArray.last```
+  - Min: retruns minimum element of array if existed (returns optional)
+    ```strArray.min()```
+  - Max: retruns maximum element of array if existed (returns optional)
+    ```strArray.max()```
+  -
+    
