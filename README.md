@@ -255,8 +255,8 @@ rooms: for room in 11...16 {
 }
 ```
 > output:
-> Available room 11 in floor 12
-> Available room 12 in floor 12
+>> Available room 11 in floor 12
+>> Available room 12 in floor 12
 
 
 
