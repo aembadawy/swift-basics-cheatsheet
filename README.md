@@ -173,7 +173,7 @@ var anotherStrArray = ["key1", "key2", "key3"]
 
 ### Loops
 - While loop: as long as the condition is true, the code excutes
-  ```
+```
 var i = 110
 while i > 99 {
     print("Above 100")
