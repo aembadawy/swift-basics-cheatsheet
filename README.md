@@ -198,31 +198,31 @@ repeat {
 } while i > 90
 ```
 - For Loop: runs a specified number of times with an increasing countable range
-* Example using a closed range
+**Example using a closed range**
 ```
 for i in 0...9 {
    print(i)
 }
 ```
-* Example using halp-open range
+**Example using halp-open range**
 ```
 for i in 0..<5 {
     print(i)
 }
 ```
-* Example when value of i is not needed
+**Example when value of i is not needed**
 ```
 for _ in 0...10 {
     print("Repetetion...")
 }
 ```
-* Example using *where* to add condition on a loop
+**Example using *where* to add condition on a loop**
 ```
 for i in 1...100 where i%2 == 0 {
     print(i, "is odd")
 }
 ```
-* Example using *Loop Labeled Statment*, *Nested Loops*, and *continue*
+**Example using *Loop Labeled Statment*, *Nested Loops*, and *continue***
 Continue key word stops current iteration and continues 
 ```
 floors: for floor in 12...14 {
@@ -242,7 +242,7 @@ rooms: for room in 11...16 {
 > Available room 11 in floor 14
 > Available room 12 in floor 14
 
-* Example using *break*
+**Example using *break***
 Break stops the loop intierly, breaks out of it
 ```
 floors: for floor in 12...14 {
