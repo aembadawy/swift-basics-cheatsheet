@@ -156,5 +156,108 @@ var anotherStrArray = ["key1", "key2", "key3"]
     ```strArray.min()```
   - Max: retruns maximum element of array if existed (returns optional)
     ```strArray.max()```
-  -
+  - Contains: check if array contains an element, returns bool
+    ```strArray.contains("val1")```
+  - Insert: inserts new element value at specified index
+    ```strArray.insert("val8", at: 0)```
+  - Insert Contents of: intserts contets of another collection at a specidied index
+    ```strArray.insert(contentsOf: anotherStrArray, at: 0)```
+  - Swap at: extchanges the values of 2 elements at specified indexes
+    ```strArray.swapAt(1, 2)```
+  - Enumerated: Returns a sequence of pairs (n, x), where n represents index and x represents value.
+    ```strArray.enumerated()```
+  - Subscripting: getting the element at a spcific index, if element doesn't exist the app will crash.
+    ```let element = array[3]```
+  - Array Slicing: stores a ref to a part of the array
+    ```let arraySlice = strArray[1...3]```
+
+### Loops
+- While loop: as long as the condition is true, the code excutes
+  ```
+var i = 110
+while i > 99 {
+    print("Above 100")
+    i -= 1
+}
+```
+loop can also be broken out of by using *break*.
+```
+while i > 99 {
+    print("Above 100")
+    i -= 1
+    if i == 105 {
+        break
+    }
+}
+```
+- Repeat while: makes sure the code is excuted at least once before checking the condition
+```
+repeat {
+    print("Above 90")
+    i -= 1
+} while i > 90
+```
+- For Loop: runs a specified number of times with an increasing countable range
+* Example using a closed range
+```
+for i in 0...9 {
+   print(i)
+}
+```
+* Example using halp-open range
+```
+for i in 0..<5 {
+    print(i)
+}
+```
+* Example when value of i is not needed
+```
+for _ in 0...10 {
+    print("Repetetion...")
+}
+```
+* Example using *where* to add condition on a loop
+```
+for i in 1...100 where i%2 == 0 {
+    print(i, "is odd")
+}
+```
+* Example using *Loop Labeled Statment*, *Nested Loops*, and *continue*
+Continue key word stops current iteration and continues 
+```
+floors: for floor in 12...14 {
+rooms: for room in 11...16 {
+    if room == 13 {
+        continue floors
+    }
+    print("Available room", room, "in floor", floor)
+}
+}
+```
+> output:
+> Available room 11 in floor 12
+> Available room 12 in floor 12
+> Available room 11 in floor 13
+> Available room 12 in floor 13
+> Available room 11 in floor 14
+> Available room 12 in floor 14
+
+* Example using *break*
+Break stops the loop intierly, breaks out of it
+```
+floors: for floor in 12...14 {
+rooms: for room in 11...16 {
+    if room == 13 {
+        break floors
+    }
+    print("Available room", room, "in floor", floor)
+}
+}
+```
+> output:
+> Available room 11 in floor 12
+> Available room 12 in floor 12
+
+
+
     
