@@ -321,12 +321,16 @@ var anotherSet: Set<Int> = [5,6,4,3,8,9]
     ```
   - Form Symmetric Difference: like *symmetric difference* but mutates the set it's called on in place
     ```
-    set.formUnion(anotherSet)
+    set.formSymmetricDifference(anotherSet)
     ```
   - Union: returns a set containing elements of both sets
     ```
     let unionSet = set.union(anotherSet)
     ```
   - Form Union: like *union* but mutates the set it's called on in place.
-    
+    ```
+    set.formUnion(anotherSet)
+    ```
 
+
+### Functions & Named Types
