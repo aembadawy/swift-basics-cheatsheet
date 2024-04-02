@@ -234,13 +234,13 @@ rooms: for room in 11...16 {
 }
 }
 ```
-> output:
-> Available room 11 in floor 12
-> Available room 12 in floor 12
-> Available room 11 in floor 13
-> Available room 12 in floor 13
-> Available room 11 in floor 14
-> Available room 12 in floor 14
+>output:
+>Available room 11 in floor 12
+>Available room 12 in floor 12
+>Available room 11 in floor 13
+>Available room 12 in floor 13
+>Available room 11 in floor 14
+>Available room 12 in floor 14
 
 **Example using *break***
 Break stops the loop intierly, breaks out of it
@@ -254,10 +254,79 @@ rooms: for room in 11...16 {
 }
 }
 ```
-> output:
->> Available room 11 in floor 12
->> Available room 12 in floor 12
+>output:
+>Available room 11 in floor 12
+>Available room 12 in floor 12
 
+### Dictionary
+Dictionaries are unordered collection of *(key, value)* pairs, of the same data type.
+Keys must be unique, but values can be redundant.
+Used when we need to store and retrive values based on a value of an identifier.
+```
+var dictionary: [String: Int] = [:]
+dictionary = ["1": 1, "2": 2, "3": 3]
+```
+or using type-inferance
+```
+var dictionary = ["1": 1, "2": 2, "3": 3]
+```
+updating value of key
+```
+dictionary["1"] = 10 // changes if key exists
+dictionary["4"] = 4 // adds new if key doesn't exist
+```
+or 
+```
+dictionary.updateValue(1, forKey: "1")
+```
+removing value
+```
+dictionary.removeValue(forKey: "3")
+```
+or
+```
+dictionary["2"] = nil
+```
 
-
+### Set
+Unordered sequance of unique elements of the same data type, ensures no duplication.
+```
+var set: Set<Int> = [1,2,3,4]
+var anotherSet: Set<Int> = [5,6,4,3,8,9]
+```
+- Using set methods
+  - Insert: inserts element with no index needed, as it's an unordered list.
+    ```
+    set.insert(11)
+    ```
+  - Containts: checks if the set contains an elements and return bool.
+    ```
+    set.contains(11)
+    ```
+  - Remove: removes element if exists, and returns either the removed element or nil if element does not exist.
+    ```
+    set.remove(9)
+    ```
+  - Intersection: returns a set of only the elements that exist in both sets
+    ```
+    let intersectionSet = set.intersection(anotherSet)
+    ```
+  - Form intersection: like *intersection* but mutates the set it's called on in place.
+    ```
+    set.formUnion(anotherSet)
+    ```
+  - SymmetricDifference: retruns elements that do not exists in either set, *opposit of intersection*.
+    ```
+    let diffSet = set.symmetricDifference(anotherSet)
+    ```
+  - Form Symmetric Difference: like *symmetric difference* but mutates the set it's called on in place
+    ```
+    set.formUnion(anotherSet)
+    ```
+  - Union: returns a set containing elements of both sets
+    ```
+    let unionSet = set.union(anotherSet)
+    ```
+  - Form Union: like *union* but mutates the set it's called on in place.
     
+
