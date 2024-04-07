@@ -334,3 +334,41 @@ var anotherSet: Set<Int> = [5,6,4,3,8,9]
 
 
 ### Functions & Named Types
+Named types are types that must have a name when declared, i.e., structs, classes, enums, protocals, and also ints, strings, and arrays, etc.
+Compound types on the other hand are defined by a *type-signature*, they are defined by the type they contain, i.e., tuples are conpound types they can be *(Int, Int) or (Int, bool)*, etc.
+Another compound type is ***Functions***. 
+
+Types can also be ascibed in another important way: 
+- Value types: hold value, i.e., structs, tuples
+- Refrence types: hold only refreance to value, i.e., classes, functions.
+
+#### Function overloading 
+Overloading is unique to functions, it's creating the functions with the same name but they must be different in either thier **param list** in both *param number or param types*, or **return type**, or different **argument labels**. 
+NOTE: Difference in param names is not concidered overloading.
+
+Overloaded functions must be related, it's also advisable to avoid overloads that differ only in return types.
+
+#### Variadic params
+When the number of values passed in for the params varies.
+It's treated as an array, but we can not pass an array.
+```
+func getHighGrade(for grades: Int...) {
+    print(grades.max())
+}
+getHighGrade(for: 80, 90, 0, 10, 50)
+```
+>output: 90
+
+#### inout keyward
+Normally, when passing a value into a func, it creates a copy of it and that copy is essentially a let const and immutabl in func body, which is the behavior wanted natrually. However, sometimes a func is needed to change a param directly, i.e., *copy-in*, *copy-out*.
+Essentially, passing by refreance.
+```
+var count = 10
+func printVal(_ val: inout Int) {
+    val += 1
+}
+printVal(&count)
+print("Count", count)
+```
+>output: Count 11
+
