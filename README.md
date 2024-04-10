@@ -336,7 +336,7 @@ var anotherSet: Set<Int> = [5,6,4,3,8,9]
 ### Functions & Named Types
 Named types are types that must have a name when declared, i.e., structs, classes, enums, protocals, and also ints, strings, and arrays, etc.
 Compound types on the other hand are defined by a *type-signature*, they are defined by the type they contain, i.e., tuples are conpound types they can be *(Int, Int) or (Int, bool)*, etc.
-Another compound type is ***Functions***. 
+***Functions***, like tuples, are **Compound types**, thier type is distingushied by a type-signnature instead of a name.
 
 Types can also be ascibed in another important way: 
 - Value types: hold value, i.e., structs, tuples
@@ -360,7 +360,8 @@ getHighGrade(for: 80, 90, 0, 10, 50)
 >output: 90
 
 #### inout keyward
-Normally, when passing a value into a func, it creates a copy of it and that copy is essentially a let const and immutabl in func body, which is the behavior wanted natrually. However, sometimes a func is needed to change a param directly, i.e., *copy-in*, *copy-out*.
+Normally, when passing a value into a func, it creates a copy of it and that copy is essentially a let constant and immutabl in func body, which is the behavior wanted natrually. However, sometimes a func is needed to change a param directly, i.e., *copy-in*, *copy-out*.
+
 Essentially, passing by refreance.
 ```
 var count = 10
@@ -372,3 +373,86 @@ print("Count", count)
 ```
 >output: Count 11
 
+### Closures
+Anonymous function, or a function with no name.
+Closures also do not have *argument label*, or *defualt params value*
+
+```
+var addClosure: (Int, Int) -> Int = { (a: Int, b: Int) in
+    return a + b
+}
+```
+or using type inference
+```
+var addClosure = { (a: Int, b: Int) in
+    return a + b
+}
+```
+and since it's only one statement in the closure body we can remove the *return* keyword
+```
+var addClosure = { (a: Int, b: Int) in
+     a + b
+}
+```
+
+### Structs vs Classes
+Structs are **value types** commonly described as blueprints. i.e. Int, Bool, Array, Double, Dictionary, String types are all structs.
+Structs have both properties and methods. 
+
+```
+struct Wizard {
+    
+    var fName: String
+    var lName: String
+    
+    var fullName: String {
+        return fName + " " + lName
+    }
+}
+```
+we have not actually created a wizard; we've just defined a common way to do so, hinting at a blueprint
+
+```
+var newWiz = Wizard(fName: "Harry", lName: "Potter")
+newWiz.fullName
+```
+>output: Harry Potter
+structs also automatically generate an initializer.
+
+```
+var wizardFromAnotherHouse = newWiz
+```
+create a copy, or an entirely new struct with the same values of the original one.
+```
+wizardFromAnotherHouse.fName = "Helena"
+wizardFromAnotherHouse.fullName
+newWiz.fullName
+```
+>output: Helena Potter
+>Harry Potter
+
+values are different as structs are **value-types**
+
+```
+struct Wizard {
+    
+    var fName: String
+    var lName: String
+    var house: String = ""
+    
+    var fullName: String {
+        return fName + " " + lName
+    }
+    
+    mutating func changeWizardHouseTo(_ newHouse: String) {
+        house = newHouse
+    }
+}
+```
+the **mutating** keyword tells the commpiler to create a brand new copy of the struct, since we are changing a variable value inside the struct, we have to mark the function as mutating.
+**mutating a struct actually create a new one based upon exsisting values**
+```
+wizardFromAnotherHouse.changeWizardHouseTo("Hufflepuff")
+```
+
+#### getters and setters
