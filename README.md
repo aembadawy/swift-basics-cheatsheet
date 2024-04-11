@@ -394,8 +394,23 @@ var addClosure = { (a: Int, b: Int) in
      a + b
 }
 ```
+also we can use short closure syntax, as $0 refers to the first param ans $1 refers to param #2 aka **shorthand argument names**
+```
+var addClosure: (Int, Int) -> Int = { $0 + $1 }
+```
+a void closure is a closure that takes no param and returns nothing
+```
+let voidClosure: () -> Void = {
+    print("Swift's void closure")
+}
+```
+
+#### Trailing closure syntax
+
 
 ### Structs vs Classes
+
+#### Structs
 Structs are **value types** commonly described as blueprints. i.e. Int, Bool, Array, Double, Dictionary, String types are all structs.
 Structs have both properties and methods. 
 
@@ -417,7 +432,7 @@ var newWiz = Wizard(fName: "Harry", lName: "Potter")
 newWiz.fullName
 ```
 >output: Harry Potter
-structs also automatically generate an initializer.
+structs also automatically generate an initializer known as **memberwiz initializer**
 
 ```
 var wizardFromAnotherHouse = newWiz
@@ -454,5 +469,130 @@ the **mutating** keyword tells the commpiler to create a brand new copy of the s
 ```
 wizardFromAnotherHouse.changeWizardHouseTo("Hufflepuff")
 ```
+Structs are *infertile* they cannot inherit or be subclassed. Inheritance is only reserved for classes. 
+#### Classes
+Classes are refrence types meaning calsses objects refrence the same value. 
+As classes objects are stored in the heap, they only carry a refrence to that value in the stack, which implaies that when we change one of them, all refrences pointing to that object have the same value.
 
-#### getters and setters
+```
+class A {
+    var name: String
+    var age: Int
+    init(name: String, age: Int) {
+        self.name = name
+        self.age = age
+    }
+}
+```
+classes do not offer an init by defualt and if they have stored properties that do not have a initial values, they must have an init that initialize these values on object instantiation.
+
+```
+let detJake = A(name: "Jake", age: 30)
+let detRosa = detJake
+detRosa.name = "Rosa"
+
+print(detJake.name)
+```
+>output: Rosa
+both objects have the same value as they are merly a refrence to the same object
+when we declare ``` let detRosa = detJake``` we only create a new refrence to the samething.
+also notice we can change a let object's var stored properties, even when we declared it as a constant, as again it's only a refrence. If we want any value to not be changes we have to declare it as a constant in the classes declaration itself.
+
+##### Class conveinace init
+A conveinance initializer makes it more conveinace to init a class, by offering some defualt values and delegating the rest of the work to the designated init.
+```
+class A {
+    var name: String
+    var age: Int
+    init(name: String, age: Int) {
+        self.name = name
+        self.age = age
+    }
+    
+    convenience init(name: String) {
+        self.init(name: name, age: 30)
+    }
+}
+```
+this makes it possible to init a classes using only the name property.
+
+##### Class inheritance
+aka subclassing. in swift, a class can only inherit form one superclass. But a suberclass can have many subclasses.
+if a class doesn't inherit from any class it's called **base class**.
+**Polymorphism**: A subclass can be treated as it's own type or any of it's suber classes.
+in inheritance, we can override a stored property, but we cannot override a computed property.
+
+```
+class B: A {
+    func printNameAndAge() {
+           print(super.name, super.age)
+    }
+}
+```
+if the subclass doesn't define it's own init, it automatically inherits all of it's suberclass's **designated** as well as **convenience** inits.
+if we init an object using B class, we have both options for init, with name and age, and only with age (from the convenience init).
+
+```
+class B: A {
+    
+    override init(name: String, age: Int) {
+        super.init(name: name, age: age)
+    }
+}
+```
+if the subclass overrides the suber class init, it still inherits the convenience init of the superclass.
+
+```
+class B: A {
+    
+    var gender: Character
+    
+    init(gender: Character) {
+        self.gender = gender
+        super.init(name: "Aem", age: 30)
+    }
+}
+```
+if the subclass chooses to define it's own init, it losses the inherited inits both *designated and conveinace*.
+
+if we need the convenience init or even the designated init to be implemented in the subclasses regradless of wether they implement there own init or not, we can enforce that by using the **required** keyword.
+
+```
+class A {
+    var name: String
+    var age: Int
+    
+    init(name: String, age: Int) {
+        self.name = name
+        self.age = age
+    }
+    
+    required convenience init(name: String) {
+        self.init(name: name, age: 30)
+    }
+}
+
+class B: A {
+    
+    var gender: Character
+    
+    init(gender: Character, name: String = "") {
+        self.gender = gender
+        super.init(name: name, age: 30)
+    }
+    
+    required convenience init(name: String) {
+        self.init(gender: "f", name: name)
+    }
+
+    func printNameAndAge() {
+        print(super.name, super.age)
+    }
+}
+
+let detAmy = B(name: "Amy")
+```
+By calling the required convenience init, it then calls the self.init with the name, which calls the super init
+
+
+
