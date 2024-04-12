@@ -1,8 +1,8 @@
 # swift-basics-cheatsheet
 
-### Variable & Constants declaraation 
+### Variables & Constants declaration 
 
-Variables declaared using *var*, constants using *let*
+Variables declared using *var*, constants using *let*
 
 ```
 var num: Int = 10
@@ -10,7 +10,7 @@ let pi: Float = 3.14159
 let name: String = "Aem"
 var isRight: Bool = true
 ```
-or using swift's type-inferance
+or using swift's type-inference
 ```
 var num = 10
 let name = "Aem"
@@ -19,9 +19,9 @@ var isAppleMoreThanMango = "Apple" > "Mango" //false, compares alphabet
 ```
 
 ### Optionals
-Represent the value or the absance of a value which is *nil*.
-We can not know if the optional has a value or not untill it's unwrapped.
-Type-inferance doesn't work with optionals.
+Represent the value or the absence of a value which is *nil*.
+We can not know if the optional has a value or not until it's unwrapped.
+Type-inference doesn't work with optionals.
 
 *Ways to unwrap optionals*
 1- Force Unwrap
@@ -32,10 +32,10 @@ catName = "Zoe"
 
 var unwrappedCatName = catName!
 ```
-But if the optional had no value it will crash. Use force unwrap only when it's certian it has value.
+But if the optional has no value it will crash. Use force unwrap only when it's certain it has value.
 
 2- Optional binding
-Similar to an *if-else-statment*
+Similar to an *if-else-statement*
 ```
 if let catName = catName {
     print(catName)
@@ -43,7 +43,7 @@ if let catName = catName {
     print("Cat has no name")
 }
 ```
-In optional bining, we can add more than one optional like *&& operation*.
+In optional binding, we can add more than one optional like *&& operation*.
 ```
 var otherPetName: String? = nil
 
@@ -54,10 +54,10 @@ if let catName = catName,
     print("Cat has no name, other pet has no name either.")
 }
 ```
-> output: Cat has no name, other pet has no name either.
+> output: Cat has no name, other pets have no name either.
 
-3- Guard Statment
-Guard is used to gaurd aganist something really bad that should rarly happen. 
+3- Guard Statement
+Guard is used to guard against something really bad that should rarely happen. 
 
 ```
 func print(PetName otherName: String?) {
@@ -73,7 +73,7 @@ print(PetName: otherPetName)
 ```
 > output: no otherName
 
-4- Nil Coalesing
+4- Nil Coalescing
 Sets a default value for the optional in case it's nil.
 
 ```
@@ -83,7 +83,7 @@ var defaultNum = num ?? 0
 ```
 
 5- Optional Chaining 
-When we have optional *structs, or classes* we use optional chaining to access calss or struct properties and methods in a safe way.
+When we have optional *structs, or classes* we use optional chaining to access class or struct properties and methods in a safe way.
 ```
 struct Car {
     var color = "Red"
@@ -100,17 +100,17 @@ myCar?.move()
 ```
 > output: Red car drives forward.
 
-if the struct or calss instance is nil, it won't continue down the chain.
+if the struct or class instance is nil, it won't continue down the chain.
 
 ### Tuples
-Wrap more that one small related peices of the same-type or different-type data together.
+Wrap more that one small related pieces of the same-type or different-type data together.
 ```
 let coordinates: (Int, Int) = (2,3)
 let namedCoordinatesTuple: (Int, Int) = (x: 2, y:3)
 let coordinates3D: (Int, Int, Int) = (x:2, y:3, z: 1)
 let firstOperandWithOperation: (Int, String) = (5, "+")
 ```
-or using swift's type-inferance 
+or using swift's type-inference 
 ```
 let coordinates = (2,3)
 ```
@@ -123,7 +123,7 @@ Arrays are Objects so they have both data and functions.
 let array: [Int] = [1,2,3,4,5]
 let arrayx10: Array<Int> = [10,20,30,40,50]
 ```
-or using type-inferance
+or using type-inference
 
 ```
 var strArray = ["val1", "val2", "val3"]
@@ -148,31 +148,31 @@ var anotherStrArray = ["key1", "key2", "key3"]
     ```strArray.isEmpty```
   - Count
     ```strArray.count```
-  - First: retruns first element of array if existed (returns optional)
+  - First: returns first element of array if exists (returns optional)
     ```strArray.first```
-  - Last: retruns last element of array if existed (returns optional)
+  - Last: returns last element of array if exists (returns optional)
     ```strArray.last```
-  - Min: retruns minimum element of array if existed (returns optional)
+  - Min: returns minimum element of array if exists (returns optional)
     ```strArray.min()```
-  - Max: retruns maximum element of array if existed (returns optional)
+  - Max: returns maximum element of array if exists (returns optional)
     ```strArray.max()```
   - Contains: check if array contains an element, returns bool
     ```strArray.contains("val1")```
   - Insert: inserts new element value at specified index
     ```strArray.insert("val8", at: 0)```
-  - Insert Contents of: intserts contets of another collection at a specidied index
+  - Insert Contents of: insert contents of another collection at a specified index
     ```strArray.insert(contentsOf: anotherStrArray, at: 0)```
-  - Swap at: extchanges the values of 2 elements at specified indexes
+  - Swap at: exchanges the values of 2 elements at specific indexes
     ```strArray.swapAt(1, 2)```
   - Enumerated: Returns a sequence of pairs (n, x), where n represents index and x represents value.
     ```strArray.enumerated()```
-  - Subscripting: getting the element at a spcific index, if element doesn't exist the app will crash.
+  - Subscripting: getting the element at a specific index, if the element doesn't exist the app will crash.
     ```let element = array[3]```
   - Array Slicing: stores a ref to a part of the array
     ```let arraySlice = strArray[1...3]```
 
 ### Loops
-- While loop: as long as the condition is true, the code excutes
+- While loop: as long as the condition is true, the code executes
 ```
 var i = 110
 while i > 99 {
@@ -190,7 +190,7 @@ while i > 99 {
     }
 }
 ```
-- Repeat while: makes sure the code is excuted at least once before checking the condition
+- Repeat while: makes sure the code is executed at least once before checking the condition
 ```
 repeat {
     print("Above 90")
@@ -204,7 +204,7 @@ for i in 0...9 {
    print(i)
 }
 ```
-**Example using halp-open range**
+**Example using half-open range**
 ```
 for i in 0..<5 {
     print(i)
@@ -213,7 +213,7 @@ for i in 0..<5 {
 **Example when value of i is not needed**
 ```
 for _ in 0...10 {
-    print("Repetetion...")
+    print("Repetition...")
 }
 ```
 **Example using *where* to add condition on a loop**
@@ -222,8 +222,8 @@ for i in 1...100 where i%2 == 0 {
     print(i, "is odd")
 }
 ```
-**Example using *Loop Labeled Statment*, *Nested Loops*, and *continue***
-Continue key word stops current iteration and continues 
+**Example using *Loop Labeled Statement*, *Nested Loops*, and *continue***
+Continue keyword stops current iteration and continues 
 ```
 floors: for floor in 12...14 {
 rooms: for room in 11...16 {
@@ -243,7 +243,7 @@ rooms: for room in 11...16 {
 >Available room 12 in floor 14
 
 **Example using *break***
-Break stops the loop intierly, breaks out of it
+Break stops the loop entirely, breaks out of it
 ```
 floors: for floor in 12...14 {
 rooms: for room in 11...16 {
@@ -261,12 +261,12 @@ rooms: for room in 11...16 {
 ### Dictionary
 Dictionaries are unordered collection of *(key, value)* pairs, of the same data type.
 Keys must be unique, but values can be redundant.
-Used when we need to store and retrive values based on a value of an identifier.
+Used when we need to store and retrieve values based on a value of an identifier.
 ```
 var dictionary: [String: Int] = [:]
 dictionary = ["1": 1, "2": 2, "3": 3]
 ```
-or using type-inferance
+or using type-inference
 ```
 var dictionary = ["1": 1, "2": 2, "3": 3]
 ```
@@ -289,7 +289,7 @@ dictionary["2"] = nil
 ```
 
 ### Set
-Unordered sequance of unique elements of the same data type, ensures no duplication.
+Unordered sequence of unique elements of the same data type, ensures no duplication.
 ```
 var set: Set<Int> = [1,2,3,4]
 var anotherSet: Set<Int> = [5,6,4,3,8,9]
@@ -299,7 +299,7 @@ var anotherSet: Set<Int> = [5,6,4,3,8,9]
     ```
     set.insert(11)
     ```
-  - Containts: checks if the set contains an elements and return bool.
+  - Contains: checks if the set contains an element and returns a bool.
     ```
     set.contains(11)
     ```
@@ -315,7 +315,7 @@ var anotherSet: Set<Int> = [5,6,4,3,8,9]
     ```
     set.formUnion(anotherSet)
     ```
-  - SymmetricDifference: retruns elements that do not exists in either set, *opposit of intersection*.
+  - SymmetricDifference: returns elements that do not exists in either set, *opposite of intersection*.
     ```
     let diffSet = set.symmetricDifference(anotherSet)
     ```
@@ -334,17 +334,17 @@ var anotherSet: Set<Int> = [5,6,4,3,8,9]
 
 
 ### Functions & Named Types
-Named types are types that must have a name when declared, i.e., structs, classes, enums, protocals, and also ints, strings, and arrays, etc.
-Compound types on the other hand are defined by a *type-signature*, they are defined by the type they contain, i.e., tuples are conpound types they can be *(Int, Int) or (Int, bool)*, etc.
-***Functions***, like tuples, are **Compound types**, thier type is distingushied by a type-signnature instead of a name.
+Named types are types that must have a name when declared, i.e., structs, classes, enums, protocols, and also ints, strings, and arrays, etc.
+Compound types on the other hand are defined by a *type-signature*, they are defined by the type they contain, i.e., tuples are compound types they can be *(Int, Int) or (Int, bool)*, etc.
+***Functions***, like tuples, are **Compound types**, their type is distinguished by a type-signature instead of a name.
 
-Types can also be ascibed in another important way: 
+Types can also be ascribed in another important way: 
 - Value types: hold value, i.e., structs, tuples
-- Refrence types: hold only refreance to value, i.e., classes, functions.
+- Reference types: hold only reference to value, i.e., classes, functions.
 
 #### Function overloading 
-Overloading is unique to functions, it's creating the functions with the same name but they must be different in either thier **param list** in both *param number or param types*, or **return type**, or different **argument labels**. 
-NOTE: Difference in param names is not concidered overloading.
+Overloading is unique to functions, it's creating the functions with the same name but they must be different in either their **param list** in both *param number or param types*, or **return type**, or different **argument labels**. 
+NOTE: Difference in param names is not considered overloading.
 
 Overloaded functions must be related, it's also advisable to avoid overloads that differ only in return types.
 
@@ -359,10 +359,10 @@ getHighGrade(for: 80, 90, 0, 10, 50)
 ```
 >output: 90
 
-#### inout keyward
-Normally, when passing a value into a func, it creates a copy of it and that copy is essentially a let constant and immutabl in func body, which is the behavior wanted natrually. However, sometimes a func is needed to change a param directly, i.e., *copy-in*, *copy-out*.
+#### inout keyword
+Normally, when passing a value into a func, it creates a copy of it and that copy is essentially a let constant and immutable in func body, which is the behavior wanted naturally. However, sometimes a func is needed to change a param directly, i.e., *copy-in*, *copy-out*.
 
-Essentially, passing by refreance.
+Essentially, passing by reference.
 ```
 var count = 10
 func printVal(_ val: inout Int) {
@@ -375,7 +375,7 @@ print("Count", count)
 
 ### Closures
 Anonymous function, or a function with no name.
-Closures also do not have *argument label*, or *defualt params value*
+Closures also do not have *argument label*, or *default params value*
 
 ```
 var addClosure: (Int, Int) -> Int = { (a: Int, b: Int) in
@@ -394,7 +394,7 @@ var addClosure = { (a: Int, b: Int) in
      a + b
 }
 ```
-also we can use short closure syntax, as $0 refers to the first param ans $1 refers to param #2 aka **shorthand argument names**
+also we can use short closure syntax, as $0 refers to the first param and $1 refers to param #2 aka **shorthand argument names**
 ```
 var addClosure: (Int, Int) -> Int = { $0 + $1 }
 ```
@@ -432,7 +432,7 @@ var newWiz = Wizard(fName: "Harry", lName: "Potter")
 newWiz.fullName
 ```
 >output: Harry Potter
-structs also automatically generate an initializer known as **memberwiz initializer**
+structs also automatically generate an initializer known as **memberwise initializer**
 
 ```
 var wizardFromAnotherHouse = newWiz
@@ -464,15 +464,15 @@ struct Wizard {
     }
 }
 ```
-the **mutating** keyword tells the commpiler to create a brand new copy of the struct, since we are changing a variable value inside the struct, we have to mark the function as mutating.
-**mutating a struct actually create a new one based upon exsisting values**
+the **mutating** keyword tells the compiler to create a brand new copy of the struct, since we are changing a variable value inside the struct, we have to mark the function as mutating.
+**mutating a struct actually create a new one based upon existing values**
 ```
 wizardFromAnotherHouse.changeWizardHouseTo("Hufflepuff")
 ```
 Structs are *infertile* they cannot inherit or be subclassed. Inheritance is only reserved for classes. 
 #### Classes
-Classes are refrence types meaning calsses objects refrence the same value. 
-As classes objects are stored in the heap, they only carry a refrence to that value in the stack, which implaies that when we change one of them, all refrences pointing to that object have the same value.
+Classes are reference types meaning classes objects reference the same value. 
+As classes objects are stored in the heap, they only carry a reference to that value in the stack, which implies that when we change one of them, all references pointing to that object have the same value.
 
 ```
 class A {
@@ -484,7 +484,7 @@ class A {
     }
 }
 ```
-classes do not offer an init by defualt and if they have stored properties that do not have a initial values, they must have an init that initialize these values on object instantiation.
+classes do not offer an init by default and if they have stored properties that do not have initial values, they must have an init that initializes these values on object instantiation.
 
 ```
 let detJake = A(name: "Jake", age: 30)
@@ -494,12 +494,12 @@ detRosa.name = "Rosa"
 print(detJake.name)
 ```
 >output: Rosa
-both objects have the same value as they are merly a refrence to the same object
-when we declare ``` let detRosa = detJake``` we only create a new refrence to the samething.
-also notice we can change a let object's var stored properties, even when we declared it as a constant, as again it's only a refrence. If we want any value to not be changes we have to declare it as a constant in the classes declaration itself.
+both objects have the same value as they are merely a reference to the same object
+when we declare ``` let detRosa = detJake``` we only create a new reference to the same thing.
+also notice we can change a let object's var stored properties, even when we declared it as a constant, as again it's only a reference. If we want any value to not be changed we have to declare it as a constant in the class declaration itself.
 
-##### Class conveinace init
-A conveinance initializer makes it more conveinace to init a class, by offering some defualt values and delegating the rest of the work to the designated init.
+##### Class convenience init
+A convenience initializer makes it more convenient to init a class, by offering some default values and delegating the rest of the work to the designated init.
 ```
 class A {
     var name: String
@@ -514,13 +514,13 @@ class A {
     }
 }
 ```
-this makes it possible to init a classes using only the name property.
+This makes it possible to init a class using only the name property.
 
 ##### Class inheritance
-aka subclassing. in swift, a class can only inherit form one superclass. But a suberclass can have many subclasses.
+aka subclassing. In swift, a class can only inherit from one superclass. But a subclass can have many subclasses.
 if a class doesn't inherit from any class it's called **base class**.
-**Polymorphism**: A subclass can be treated as it's own type or any of it's suber classes.
-in inheritance, we can override a stored property, but we cannot override a computed property.
+**Polymorphism**: A subclass can be treated as its own type or any of its super classes.
+In inheritance, we can override a stored property, but we cannot override a computed property.
 
 ```
 class B: A {
@@ -529,7 +529,7 @@ class B: A {
     }
 }
 ```
-if the subclass doesn't define it's own init, it automatically inherits all of it's suberclass's **designated** as well as **convenience** inits.
+if the subclass doesn't define it's own init, it automatically inherits all of its superclass's **designated** as well as **convenience** inits.
 if we init an object using B class, we have both options for init, with name and age, and only with age (from the convenience init).
 
 ```
@@ -553,9 +553,9 @@ class B: A {
     }
 }
 ```
-if the subclass chooses to define it's own init, it losses the inherited inits both *designated and conveinace*.
+if the subclass chooses to define it's own init, it losses the inherited, both *designated and convenience*.
 
-if we need the convenience init or even the designated init to be implemented in the subclasses regradless of wether they implement there own init or not, we can enforce that by using the **required** keyword.
+if we need the convenience init or even the designated init to be implemented in the subclasses regardless of whether they implement their own init or not, we can enforce that by using the **required** keyword.
 
 ```
 class A {
@@ -601,6 +601,4 @@ By calling the required convenience init, it then calls the self.init with the n
 | Stored in heap    | Stored in stack    |
 | Has inheritance, works with objc    | Thread safe, less memory leaks    |
 
-The offical apple advice is that we start with a struct when defining a new custom object, and noly convert it to class when needed, i.e. it needs inheritance or needs to work with objc. 
-
-
+The official apple advice is that we start with a struct when defining a new custom object, and only convert it to class when needed, i.e. it needs inheritance or needs to work with objc. 
