@@ -24,6 +24,7 @@ We can not know if the optional has a value or not until it's unwrapped.
 Type-inference doesn't work with optionals.
 
 *Ways to unwrap optionals*
+
 1- Force Unwrap
 The easiest way to unwrap optionals.
 ```
