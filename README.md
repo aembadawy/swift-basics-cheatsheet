@@ -594,5 +594,13 @@ let detAmy = B(name: "Amy")
 ```
 By calling the required convenience init, it then calls the self.init with the name, which calls the super init
 
+| Class    | Struct |
+| ---      | ---       |
+| Reference type | Value type        |
+| Mutable even if declared constant     | immutable if declared constant      |
+| Stored in heap    | Stored in stack    |
+| Has inheritance, works with objc    | Thread safe, less memory leaks    |
+
+The offical apple advice is that we start with a struct when defining a new custom object, and noly convert it to class when needed, i.e. it needs inheritance or needs to work with objc. 
 
 
