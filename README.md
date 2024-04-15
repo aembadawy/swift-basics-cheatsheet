@@ -171,6 +171,8 @@ var anotherStrArray = ["key1", "key2", "key3"]
     ```let element = array[3]```
   - Array Slicing: stores a ref to a part of the array
     ```let arraySlice = strArray[1...3]```
+  - FirstIndex: returns the index of the first element in an array that fulfills a specified condition. If no element satisfies the condition, it returns nil.
+    ``` arrayName.firstIndex{ condition }```
 
 ### Loops
 - While loop: as long as the condition is true, the code executes
