@@ -350,6 +350,15 @@ Overloading is unique to functions, it's creating the functions with the same na
 NOTE: Difference in param names is not considered overloading.
 
 Overloaded functions must be related, it's also advisable to avoid overloads that differ only in return types.
+```
+stride(from: 3, through: 0, by: -1)
+```
+>output: 3,2,1,0
+```
+stride(from: 3, to: 0, by: -1)
+```
+>output: 3,2,1
+`Stride in overloaded using different argument labels`
 
 #### Variadic params
 When the number of values passed in for the params varies.
