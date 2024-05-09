@@ -360,6 +360,8 @@ stride(from: 3, to: 0, by: -1)
 >output: 3,2,1
 `Stride in overloaded using different argument labels`
 
+Strides are a good example of sequances that is not a collection. Strides also do not conform to the `Equatable` meaning you can't compare them to each other.
+
 #### Variadic params
 When the number of values passed in for the params varies.
 It's treated as an array, but we can not pass an array.
